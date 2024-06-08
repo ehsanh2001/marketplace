@@ -20,6 +20,7 @@ Category.init(
     modelName: "category",
     timestamps: false,
     underscored: true,
+    freezeTableName: true,
   }
 );
 

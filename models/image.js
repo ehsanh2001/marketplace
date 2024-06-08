@@ -27,6 +27,7 @@ Image.init(
     modelName: "image",
     timestamps: false,
     underscored: true,
+    freezeTableName: true,
   }
 );
 

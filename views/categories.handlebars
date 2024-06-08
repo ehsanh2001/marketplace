@@ -1,0 +1,9 @@
+<div>
+  <h1>Categories</h1>
+
+  {{#each categories}}
+    <img src="/api/categories/{{this.name}}" alt="{{this.name}}" />
+    {{this.name}}
+    <br />
+  {{/each}}
+</div>

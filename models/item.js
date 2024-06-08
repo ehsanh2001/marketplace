@@ -43,6 +43,7 @@ Item.init(
     modelName: "item",
     timestamps: false,
     underscored: true,
+    freezeTableName: true,
   }
 );
 
