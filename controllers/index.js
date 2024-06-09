@@ -6,7 +6,7 @@ const apiRoutes = require("./api");
 router.use("/api", apiRoutes);
 
 router.get("/", (req, res) => {
-  res.send("Hello World");
+  res.render("homepage");
 });
 
 router.use((req, res, next) => {
