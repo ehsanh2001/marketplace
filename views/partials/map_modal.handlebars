@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="mapModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="mapModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mapModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <!-- modal body -->
+      <button class="btn btn-primary" id="find-me">Find Me</button>
+      <div class="modal-body">
+        <div id="map" style="height: 70vh; width: 100%">
+          <!-- The Google Map will be placed here -->
+        </div>
+      </div>
+      <!-- modal footer -->
+      <div class="modal-footer">
+        <div id="output"></div>
+        <!-- hidden inputs -->
+        <input type="hidden" id="lat" />
+        <input type="hidden" id="lng" />
+        <input type="hidden" id="address" />
+        <!-- ok button -->
+        <button
+          id="set-location"
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >
+          Set Location
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="/js/map_modal.js"></script>
+</div>
