@@ -1,0 +1,345 @@
+[
+  {
+    "username": "daniel_phan",
+    "cat_name": "Women's Fashion",
+    "title": "High Heels",
+    "description": "Black high heels, size 7",
+    "price": 45
+  },
+  {
+    "username": "elizabeth_tran",
+    "cat_name": "Electronics & Appliances",
+    "title": "Blender",
+    "description": "Powerful blender for smoothies",
+    "price": 35
+  },
+  {
+    "username": "francis_vo",
+    "cat_name": "Home & Garden",
+    "title": "Indoor Plant",
+    "description": "Potted plant, easy to care for",
+    "price": 20
+  },
+  {
+    "username": "gabriella_ngo",
+    "cat_name": "Books & Music",
+    "title": "Ebook Reader",
+    "description": "Kindle Paperwhite, like new",
+    "price": 100
+  },
+  {
+    "username": "henry_luu",
+    "cat_name": "Men's Fashion",
+    "title": "Watch",
+    "description": "Stylish wristwatch, stainless steel",
+    "price": 60
+  },
+  {
+    "username": "isabelle_huynh",
+    "cat_name": "Baby & Kids",
+    "title": "Baby Carrier",
+    "description": "Ergonomic baby carrier, comfortable for parent and child",
+    "price": 40
+  },
+  {
+    "username": "james_lam",
+    "cat_name": "Sports & Outdoors",
+    "title": "Camping Stove",
+    "description": "Portable camping stove, propane-powered",
+    "price": 30
+  },
+  {
+    "username": "karen_nguyen",
+    "cat_name": "Health & Beauty",
+    "title": "Sunscreen",
+    "description": "SPF 50 sunscreen lotion, waterproof",
+    "price": 15
+  },
+  {
+    "username": "karen_nguyen",
+    "cat_name": "Electronics & Appliances",
+    "title": "Vacuum Cleaner",
+    "description": "Bagless vacuum cleaner, powerful suction",
+    "price": 80
+  },
+  {
+    "username": "lucas_wood",
+    "cat_name": "Home & Garden",
+    "title": "Grill",
+    "description": "Gas grill, perfect for outdoor BBQs",
+    "price": 150
+  },
+  {
+    "username": "lucas_wood",
+    "cat_name": "Women's Fashion",
+    "title": "Sunglasses",
+    "description": "Designer sunglasses, UV protection",
+    "price": 70
+  },
+  {
+    "username": "alice_smith",
+    "cat_name": "Baby & Kids",
+    "title": "Baby Swing",
+    "description": "Automatic baby swing with multiple speed settings",
+    "price": 55
+  },
+  {
+    "username": "victor_lopez",
+    "cat_name": "Men's Fashion",
+    "title": "Wallet",
+    "description": "Leather wallet with multiple card slots",
+    "price": 25
+  },
+  {
+    "username": "jack_roberts",
+    "cat_name": "Electronics & Appliances",
+    "title": "Air Purifier",
+    "description": "HEPA air purifier, removes allergens and odors",
+    "price": 100
+  },
+  {
+    "username": "brandon_tran",
+    "cat_name": "Books & Music",
+    "title": "Vinyl Records",
+    "description": "Collection of vintage vinyl records",
+    "price": 75
+  },
+  {
+    "username": "jack_roberts",
+    "cat_name": "Sports & Outdoors",
+    "title": "Basketball",
+    "description": "Official NBA basketball, size 7",
+    "price": 20
+  },
+  {
+    "username": "nathan_hill",
+    "cat_name": "Health & Beauty",
+    "title": "Hair Dryer",
+    "description": "Ionic hair dryer, reduces frizz",
+    "price": 40
+  },
+  {
+    "username": "karen_nguyen",
+    "cat_name": "Furniture",
+    "title": "Desk",
+    "description": "Modern desk with built-in storage",
+    "price": 120
+  },
+  {
+    "username": "lucas_wood",
+    "cat_name": "Home & Garden",
+    "title": "Garden Hose",
+    "description": "Heavy-duty garden hose, 50 ft long",
+    "price": 25
+  },
+  {
+    "username": "lucas_wood",
+    "cat_name": "Women's Fashion",
+    "title": "Jacket",
+    "description": "Leather jacket, black, size medium",
+    "price": 90
+  },
+  {
+    "username": "alice_smith",
+    "cat_name": "Electronics & Appliances",
+    "title": "Smartphone",
+    "description": "Used smartphone in good condition",
+    "price": 200
+  },
+  {
+    "username": "bob_johnson",
+    "cat_name": "Books & Music",
+    "title": "Harry Potter Book Set",
+    "description": "Complete set of Harry Potter books",
+    "price": 50
+  },
+  {
+    "username": "carol_davis",
+    "cat_name": "Home & Garden",
+    "title": "Lawn Mower",
+    "description": "Electric lawn mower, slightly used",
+    "price": 150
+  },
+  {
+    "username": "david_wilson",
+    "cat_name": "Sports & Outdoors",
+    "title": "Tent",
+    "description": "4-person camping tent, used once",
+    "price": 100
+  },
+  {
+    "username": "emma_miller",
+    "cat_name": "Women's Fashion",
+    "title": "Dress",
+    "description": "Red dress, size medium",
+    "price": 30
+  },
+  {
+    "username": "frank_jackson",
+    "cat_name": "Pet Supply",
+    "title": "Dog Leash",
+    "description": "Heavy-duty dog leash, brand new",
+    "price": 20
+  },
+  {
+    "username": "grace_taylor",
+    "cat_name": "Men's Fashion",
+    "title": "Shirt",
+    "description": "Blue shirt, size large",
+    "price": 25
+  },
+  {
+    "username": "harry_adams",
+    "cat_name": "Games & Hobbies",
+    "title": "Board Game",
+    "description": "Classic board game, like new",
+    "price": 15
+  },
+  {
+    "username": "isabella_campbell",
+    "cat_name": "Health & Beauty",
+    "title": "Face Mask",
+    "description": "Moisturizing face mask, pack of 5",
+    "price": 10
+  },
+  {
+    "username": "jack_roberts",
+    "cat_name": "Furniture",
+    "title": "Coffee Table",
+    "description": "Wooden coffee table, good condition",
+    "price": 80
+  },
+  {
+    "username": "kate_hall",
+    "cat_name": "Electronics & Appliances",
+    "title": "Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker, excellent sound quality",
+    "price": 70
+  },
+  {
+    "username": "lucas_wood",
+    "cat_name": "Books & Music",
+    "title": "Guitar",
+    "description": "Acoustic guitar with case",
+    "price": 120
+  },
+  {
+    "username": "mia_nelson",
+    "cat_name": "Home & Garden",
+    "title": "Patio Set",
+    "description": "Outdoor patio set with table and chairs",
+    "price": 300
+  },
+  {
+    "username": "nathan_hill",
+    "cat_name": "Sports & Outdoors",
+    "title": "Bike",
+    "description": "Mountain bike, good condition",
+    "price": 250
+  },
+  {
+    "username": "olivia_king",
+    "cat_name": "Women's Fashion",
+    "title": "Handbag",
+    "description": "Leather handbag, black",
+    "price": 50
+  },
+  {
+    "username": "peter_scott",
+    "cat_name": "Baby & Kids",
+    "title": "Stroller",
+    "description": "Foldable stroller, lightweight",
+    "price": 100
+  },
+  {
+    "username": "quinn_baker",
+    "cat_name": "Health & Beauty",
+    "title": "Shampoo",
+    "description": "Organic shampoo, 500ml bottle",
+    "price": 15
+  },
+  {
+    "username": "ryan_hernandez",
+    "cat_name": "Electronics & Appliances",
+    "title": "Smartwatch",
+    "description": "Fitness smartwatch, waterproof",
+    "price": 150
+  },
+  {
+    "username": "sophia_gonzalez",
+    "cat_name": "Furniture",
+    "title": "Sofa",
+    "description": "3-seater sofa, fabric upholstery",
+    "price": 400
+  },
+  {
+    "username": "thomas_rodriguez",
+    "cat_name": "Games & Hobbies",
+    "title": "Video Game Console",
+    "description": "Latest gaming console, with controllers",
+    "price": 300
+  },
+  {
+    "username": "ursula_martinez",
+    "cat_name": "Men's Fashion",
+    "title": "Sneakers",
+    "description": "Brand name sneakers, size 10",
+    "price": 80
+  },
+  {
+    "username": "victor_lopez",
+    "cat_name": "Pet Supply",
+    "title": "Cat Food",
+    "description": "Premium cat food, 5lb bag",
+    "price": 15
+  },
+  {
+    "username": "wendy_perez",
+    "cat_name": "Books & Music",
+    "title": "Headphones",
+    "description": "Wireless headphones, noise-canceling",
+    "price": 100
+  },
+  {
+    "username": "xavier_gomez",
+    "cat_name": "Home & Garden",
+    "title": "Pressure Cooker",
+    "description": "Instant Pot pressure cooker, 6-quart",
+    "price": 80
+  },
+  {
+    "username": "yvonne_sanchez",
+    "cat_name": "Women's Fashion",
+    "title": "Scarf",
+    "description": "Silk scarf, floral pattern",
+    "price": 20
+  },
+  {
+    "username": "zachary_rivera",
+    "cat_name": "Baby & Kids",
+    "title": "Baby Monitor",
+    "description": "Video baby monitor with night vision",
+    "price": 70
+  },
+  {
+    "username": "amy_nguyen",
+    "cat_name": "Electronics & Appliances",
+    "title": "Rice Cooker",
+    "description": "Japanese rice cooker, 5-cup capacity",
+    "price": 50
+  },
+  {
+    "username": "brandon_tran",
+    "cat_name": "Sports & Outdoors",
+    "title": "Tennis Racket",
+    "description": "Professional-grade tennis racket",
+    "price": 80
+  },
+  {
+    "username": "catherine_le",
+    "cat_name": "Health & Beauty",
+    "title": "Facial Cleanser",
+    "description": "Gentle facial cleanser, 200ml bottle",
+    "price": 10
+  }
+]
