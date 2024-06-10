@@ -1,4 +1,10 @@
 <div class="top-image">
   <img class="img-fluid" src="/images/hero-image.png" alt="hero-image" />
 </div>
-{{> scroll_box items=categories}}
+
+<h2>Free Items</h2>
+{{> free_item_scroll_box items=data.freeItems}}
+<h2 style="display:inline-block;">Categories</h2><a href="/categories"> (See All)</a>
+{{> category_scroll_box items=data.categories}}
+
+<script src="/js/scroll_box.js"></script>

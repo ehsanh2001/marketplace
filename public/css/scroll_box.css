@@ -46,7 +46,7 @@
   display: inline-block;
   width: 150px;
   height: 150px;
-  background-color: white;
+  background-color: rgb(255, 250, 224);
   margin-right: 10px;
 }
 .item::before {

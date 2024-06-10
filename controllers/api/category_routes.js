@@ -9,18 +9,8 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // GET /api/categories
-router.get("/", async (req, res) => {
-  try {
-    const categories = await Category.getCategories();
-
-    res.render("categories", { categories });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-});
-
-router.get("/:name", async (req, res) => {
+// returns category image
+router.get("/image/:name", async (req, res) => {
   try {
     const categoryData = await Category.findOne({
       where: { name: req.params.name },

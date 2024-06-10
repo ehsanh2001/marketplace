@@ -1,21 +1,34 @@
-const leftArrow = document.querySelector(".left-arrow");
-const rightArrow = document.querySelector(".right-arrow");
-const scrollContainer = document.querySelector(".scroll-container");
-const SCROOL_VALUE = scrollContainer.offsetWidth / 2;
+function findParentWithClass(element, className) {
+  while (element && element !== document) {
+    if (element.classList.contains(className)) {
+      return element;
+    }
+    element = element.parentNode;
+  }
+  return null;
+}
 
-function scrollLeft() {
+function scrollLeft(e) {
+  const parent = findParentWithClass(e.target, "scroll-parent");
+  const scrollContainer = parent.querySelector(".scroll-container");
+
+  let shift = scrollContainer.offsetWidth / 2;
+
   if (scrollContainer.scrollLeft == 0) return;
   scrollContainer.scrollBy({
-    left: -1 * SCROOL_VALUE,
-    behavior: "instant",
+    left: -1 * shift,
+    behavior: "smooth",
   });
 }
 
-function scrollRight() {
-  let shift = SCROOL_VALUE;
+function scrollRight(e) {
+  const parent = findParentWithClass(e.target, "scroll-parent");
+  const scrollContainer = parent.querySelector(".scroll-container");
+
+  let shift = scrollContainer.offsetWidth / 2;
   // if the scroll is at the end of the container
   if (
-    scrollContainer.scrollLeft + SCROOL_VALUE + scrollContainer.offsetWidth >=
+    scrollContainer.scrollLeft + shift + scrollContainer.offsetWidth >=
     scrollContainer.scrollWidth
   ) {
     // shift to the end of the container which maybe less than SCROOL_VALUE
@@ -23,30 +36,45 @@ function scrollRight() {
   }
   scrollContainer.scrollBy({
     left: shift,
-    behavior: "instant",
+    behavior: "smooth",
   });
 }
 
-function containerMouseEnter() {
-  leftArrow.style.display = "flex";
-  rightArrow.style.display = "flex";
+function containerMouseEnter(e) {
+  e.target.querySelector(".left-arrow").style.display = "flex";
+  e.target.querySelector(".right-arrow").style.display = "flex";
+  // leftArrow.style.display = "flex";
+  // rightArrow.style.display = "flex";
 }
 
-function containerMouseLeave() {
-  leftArrow.style.display = "none";
-  rightArrow.style.display = "none";
+function containerMouseLeave(e) {
+  e.target.querySelector(".left-arrow").style.display = "none";
+  e.target.querySelector(".right-arrow").style.display = "none";
+  // leftArrow.style.display = "none";
+  // rightArrow.style.display = "none";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  document
-    .querySelector(".scroll-parent")
-    .addEventListener("mouseenter", containerMouseEnter);
-  document
-    .querySelector(".scroll-parent")
-    .addEventListener("mouseleave", containerMouseLeave);
+  const scrollParents = [...document.querySelectorAll(".scroll-parent")];
+  scrollParents.map((container) => {
+    container.addEventListener("mouseenter", containerMouseEnter);
+    container.addEventListener("mouseleave", containerMouseLeave);
+  });
 
-  leftArrow.addEventListener("click", scrollLeft);
-  rightArrow.addEventListener("click", scrollRight);
-  leftArrow.addEventListener("dblclick", scrollLeft);
-  rightArrow.addEventListener("dblclick", scrollRight);
+  const leftArrows = [...document.querySelectorAll(".left-arrow")];
+  leftArrows.map((leftArrow) => {
+    leftArrow.addEventListener("click", scrollLeft);
+    leftArrow.addEventListener("dblclick", scrollLeft);
+  });
+
+  const rightArrows = [...document.querySelectorAll(".right-arrow")];
+  rightArrows.map((rightArrow) => {
+    rightArrow.addEventListener("click", scrollRight);
+    rightArrow.addEventListener("dblclick", scrollRight);
+  });
+
+  // leftArrow.addEventListener("click", scrollLeft);
+  // rightArrow.addEventListener("click", scrollRight);
+  // leftArrow.addEventListener("dblclick", scrollLeft);
+  // rightArrow.addEventListener("dblclick", scrollRight);
 });
