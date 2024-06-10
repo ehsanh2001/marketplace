@@ -2,11 +2,19 @@
 
 const router = require("express").Router();
 const apiRoutes = require("./api");
+const { Category } = require("../models");
 
 router.use("/api", apiRoutes);
 
-router.get("/", (req, res) => {
-  res.render("homepage");
+router.get("/", async (req, res) => {
+  try {
+    // get categories from DB
+    const categories = await Category.getCategories();
+    res.render("homepage", { categories });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
 });
 
 router.use((req, res, next) => {

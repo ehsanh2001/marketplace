@@ -1,7 +1,16 @@
 const sequelize = require("../config/connection");
 const { Model, DataTypes } = require("sequelize");
 
-class Category extends Model {}
+class Category extends Model {
+  static async getCategories() {
+    try {
+      const categoriesData = await this.findAll({ attributes: ["name"] });
+      return categoriesData.map((category) => category.get({ plain: true }));
+    } catch (err) {
+      console.error(err);
+    }
+  }
+}
 
 Category.init(
   {

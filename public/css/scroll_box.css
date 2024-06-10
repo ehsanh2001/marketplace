@@ -1,0 +1,74 @@
+.scroll-parent {
+  position: relative;
+  width: 80%;
+  height: 13rem;
+  margin: 2rem auto;
+}
+
+.scroll-container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+  border: 1px solid #ccc;
+  /* margin-top: 100px;  */
+}
+
+.scroll-arrow {
+  display: none;
+  position: absolute;
+  top: 3rem;
+  height: 3rem;
+  width: 3rem;
+  align-items: center;
+  background-color: #ccc;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-arrow {
+  left: -1.5rem;
+  transform: translateX(calc(var(--scroll-left-arrow, 0rem)));
+}
+
+.right-arrow {
+  right: -1.5rem;
+  transform: translateX(calc(var(--scroll-right-arrow, 0rem)));
+}
+
+.item {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  margin-right: 10px;
+}
+.item::before {
+  content: attr(data-item-title); /* Use the custom attribute as the content */
+  position: absolute;
+  left: 50%; /* Start at the center horizontally */
+  transform: translateX(
+    -50%
+  ); /* Center it by shifting left half of its width */
+  bottom: -30px; /* Position 10px below the bottom of .item */
+  background-color: #fff; /* Optional: background color to make text readable */
+  padding: 2px 5px; /* Optional: some padding to make it look nicer */
+  border-radius: 3px; /* Optional: rounded corners */
+}
+
+.item-round {
+  border-radius: 50%;
+}
+
+.item img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  display: inline;
+}

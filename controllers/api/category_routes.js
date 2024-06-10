@@ -11,10 +11,7 @@ const upload = multer({ storage });
 // GET /api/categories
 router.get("/", async (req, res) => {
   try {
-    const categoriesData = await Category.findAll({ attributes: ["name"] });
-    const categories = categoriesData.map((category) =>
-      category.get({ plain: true })
-    );
+    const categories = await Category.getCategories();
 
     res.render("categories", { categories });
   } catch (err) {
