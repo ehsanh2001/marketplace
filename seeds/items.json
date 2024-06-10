@@ -11,14 +11,14 @@
     "cat_name": "Electronics & Appliances",
     "title": "Blender",
     "description": "Powerful blender for smoothies",
-    "price": 35
+    "price": 0
   },
   {
     "username": "francis_vo",
     "cat_name": "Home & Garden",
     "title": "Indoor Plant",
     "description": "Potted plant, easy to care for",
-    "price": 20
+    "price": 0
   },
   {
     "username": "gabriella_ngo",
@@ -53,7 +53,7 @@
     "cat_name": "Health & Beauty",
     "title": "Sunscreen",
     "description": "SPF 50 sunscreen lotion, waterproof",
-    "price": 15
+    "price": 0
   },
   {
     "username": "karen_nguyen",
@@ -109,7 +109,7 @@
     "cat_name": "Sports & Outdoors",
     "title": "Basketball",
     "description": "Official NBA basketball, size 7",
-    "price": 20
+    "price": 0
   },
   {
     "username": "nathan_hill",
@@ -186,7 +186,7 @@
     "cat_name": "Men's Fashion",
     "title": "Shirt",
     "description": "Blue shirt, size large",
-    "price": 25
+    "price": 0
   },
   {
     "username": "harry_adams",
@@ -242,7 +242,7 @@
     "cat_name": "Women's Fashion",
     "title": "Handbag",
     "description": "Leather handbag, black",
-    "price": 50
+    "price": 0
   },
   {
     "username": "peter_scott",
@@ -319,7 +319,7 @@
     "cat_name": "Baby & Kids",
     "title": "Baby Monitor",
     "description": "Video baby monitor with night vision",
-    "price": 70
+    "price": 0
   },
   {
     "username": "amy_nguyen",
@@ -340,6 +340,6 @@
     "cat_name": "Health & Beauty",
     "title": "Facial Cleanser",
     "description": "Gentle facial cleanser, 200ml bottle",
-    "price": 10
+    "price": 0
   }
 ]
