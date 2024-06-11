@@ -6,10 +6,7 @@
     {{#each items as |item|}}
       <div class="item item-round" data-item-title="{{item.title}}">
         <a href="#">
-          <img
-            src="/api/images/{{getImageIdFromIndex item.images 0}}"
-            alt="Item {{item.id}}"
-          />
+          <img src="/api/images/{{item.images.0.id}}" alt="Item {{item.id}}" />
         </a>
       </div>
     {{/each}}
