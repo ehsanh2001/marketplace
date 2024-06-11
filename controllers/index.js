@@ -2,15 +2,36 @@
 
 const router = require("express").Router();
 const apiRoutes = require("./api");
-const { Category, Item } = require("../models");
+const { Category, Item, Image } = require("../models");
 
 router.use("/api", apiRoutes);
+
+async function getNFreeItems(n) {
+  try {
+    const freeItemsData = await Item.findAll({
+      attributes: ["id", "title", "created_at"],
+      where: { price: 0 },
+      order: [["created_at", "DESC"]],
+      limit: n,
+      include: [{ model: Image, attributes: ["id"] }],
+    });
+    return freeItemsData.map((item) => item.get({ plain: true }));
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 // Home page
 router.get("/", async (req, res) => {
   try {
     const categories = await Category.getCategories();
-    const freeItems = await Item.getNFreeItems(20);
+    const freeItems = await getNFreeItems(20);
+
+    console.log("---------------------------");
+    for (const item of freeItems) {
+      console.log(item.images[0].id);
+    }
+    console.log("******************************");
 
     const data = { categories, freeItems };
     res.render("homepage", { data });

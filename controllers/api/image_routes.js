@@ -7,12 +7,12 @@ const { Image } = require("../../models");
 
 // Each item can have multiple images.
 // :image is the number of the image in the sequence of images for that item.
-router.get("/:item_id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     // Find all images for the item
     const imageData = await Image.findOne({
       where: {
-        item_id: req.params.item_id,
+        id: req.params.id,
       },
     });
 
