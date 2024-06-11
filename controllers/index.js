@@ -2,15 +2,14 @@
 
 const router = require("express").Router();
 const apiRoutes = require("./api");
-//mine
+//Get user routes 
 const userRoutes = require('./api/user_routes')
-//mine 
 const { Category, Item } = require("../models");
 
 router.use("/api", apiRoutes);
-//mine
+// use userRoutes
 router.use('/api', userRoutes)
-//mine
+
 
 // Home page
 router.get("/", async (req, res) => {
