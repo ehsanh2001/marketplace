@@ -1,0 +1,21 @@
+{{> search_bar}}
+<div class = "mt-5 h1 orange">Results for "{{term}}" in {{radius}} km radius from you</div>
+
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-3">Filters</div>
+    <div class="col-9">
+      <div class="row">
+        {{#each data}}
+          <div class="col-12 col-md-3 border">
+            <a href="#"><img src="/api/images/{{this.images.0.id}}" alt="" width="200" /></a>
+            <a href="#"><h4>{{this.title}}</h4></a>
+            <p>{{this.description}}</p>
+            <p>Price: ${{this.price}}</p>
+            <p>Distance: {{this.distance}} km</p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

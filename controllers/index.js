@@ -2,36 +2,15 @@
 
 const router = require("express").Router();
 const apiRoutes = require("./api");
-const { Category, Item, Image } = require("../models");
-
+const { Category, Item } = require("../models");
+const { getNFreeItems, searchItems } = require("../models/queries");
 router.use("/api", apiRoutes);
-
-async function getNFreeItems(n) {
-  try {
-    const freeItemsData = await Item.findAll({
-      attributes: ["id", "title", "created_at"],
-      where: { price: 0 },
-      order: [["created_at", "DESC"]],
-      limit: n,
-      include: [{ model: Image, attributes: ["id"] }],
-    });
-    return freeItemsData.map((item) => item.get({ plain: true }));
-  } catch (err) {
-    console.error(err);
-  }
-}
 
 // Home page
 router.get("/", async (req, res) => {
   try {
     const categories = await Category.getCategories();
     const freeItems = await getNFreeItems(20);
-
-    console.log("---------------------------");
-    for (const item of freeItems) {
-      console.log(item.images[0].id);
-    }
-    console.log("******************************");
 
     const data = { categories, freeItems };
     res.render("homepage", { data });
@@ -80,6 +59,22 @@ router.get("/signup", async (req, res) => {
   try {
     const data = {};
     res.render("signup", { data });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+// search page
+router.get("/search", async (req, res) => {
+  try {
+    const data = await searchItems(req.query);
+    console.dir(data);
+    res.render("search_result", {
+      data,
+      term: req.query.term,
+      radius: req.query.radius / 1000,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
