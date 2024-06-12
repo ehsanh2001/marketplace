@@ -8,7 +8,7 @@ const searchFormHandler = async (event) => {
   // Convert radius to meters
   radius = parseFloat(radius) * 1000;
 
-  let url = new URL("/search", window.location.origin);
+  let url = new URL("/api/items//search/term_location", window.location.origin);
   url.searchParams.append("lat", lat);
   url.searchParams.append("lng", lng);
   url.searchParams.append("term", term);

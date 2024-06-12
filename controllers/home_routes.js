@@ -2,7 +2,7 @@
 
 const router = require("express").Router();
 const { Category, Item } = require("../models");
-const { getNFreeItems, searchItems } = require("../models/queries");
+const { getNFreeItems } = require("../models/queries");
 
 // Home page
 router.get("/", async (req, res) => {
@@ -57,22 +57,6 @@ router.get("/signup", async (req, res) => {
   try {
     const data = {};
     res.render("signup", { data });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-});
-
-// search page
-router.get("/search", async (req, res) => {
-  try {
-    const data = await searchItems(req.query);
-    console.dir(data);
-    res.render("search_result", {
-      data,
-      term: req.query.term,
-      radius: req.query.radius / 1000,
-    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
