@@ -74,18 +74,20 @@ async function searchItemsByTerm(searchParams) {
   return await searchItems(searchParams, `title ilike '%${term}%'`);
 }
 
-// search items based on category
 async function searchItemsByCategory(searchParams) {
   const { category, lat, lng, radius } = searchParams;
   return await searchItems(searchParams, `cat_name = '${category}'`);
 }
 
-// search items based on item id
 async function searchItemsById(searchParams) {
-  try {
-  } catch (err) {
-    console.error(err);
-  }
+  const { id } = searchParams;
+  searchParams.radius = 1000000; // search all disrances
+  return await searchItems(searchParams, `item.id = ${id}`);
 }
 
-module.exports = { getNFreeItems, searchItemsByCategory, searchItemsByTerm };
+module.exports = {
+  getNFreeItems,
+  searchItemsByCategory,
+  searchItemsByTerm,
+  searchItemsById,
+};

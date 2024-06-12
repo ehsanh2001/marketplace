@@ -4,7 +4,11 @@
 
   <div class="scroll-container">
     {{#each items as |item|}}
-      <div class="item item-round" data-item-title="{{item.title}}">
+      <div
+        class="item-box item-box-round item"
+        data-item-title="{{item.title}}"
+        data-item-id="{{item.id}}"
+      >
         <a href="#">
           <img src="/api/images/{{item.images.0.id}}" alt="Item {{item.id}}" />
         </a>
@@ -19,3 +23,5 @@
   </button>
 
 </div>
+
+<script src="js/item.js"></script>

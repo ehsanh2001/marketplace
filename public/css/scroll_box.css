@@ -41,7 +41,7 @@
   transform: translateX(calc(var(--scroll-right-arrow, 0rem)));
 }
 
-.item {
+.item-box {
   position: relative;
   display: inline-block;
   width: 150px;
@@ -49,24 +49,24 @@
   background-color: rgb(255, 250, 224);
   margin-right: 10px;
 }
-.item::before {
+.item-box::before {
   content: attr(data-item-title); /* Use the custom attribute as the content */
   position: absolute;
   left: 50%; /* Start at the center horizontally */
   transform: translateX(
     -50%
   ); /* Center it by shifting left half of its width */
-  bottom: -30px; /* Position 10px below the bottom of .item */
+  bottom: -30px; /* Position 10px below the bottom of .item-box */
   background-color: #fff; /* Optional: background color to make text readable */
   padding: 2px 5px; /* Optional: some padding to make it look nicer */
   border-radius: 3px; /* Optional: rounded corners */
 }
 
-.item-round {
+.item-box-round {
   border-radius: 50%;
 }
 
-.item img {
+.item-box img {
   object-fit: contain;
   width: 100%;
   height: 100%;

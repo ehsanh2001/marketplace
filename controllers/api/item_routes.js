@@ -2,16 +2,13 @@
 
 const router = require("express").Router();
 const { Category, Item } = require("../../models");
-const {
-  searchItemsByTerm,
-  searchItemsByCategory,
-} = require("../../models/queries");
+const Query = require("../../models/queries");
 
 // search based on term and location
 // query: /api/item/term_location?term=term&lat=lat&lng=lng&radius=radius
 router.get("/search/term_location", async (req, res) => {
   try {
-    const data = await searchItemsByTerm(req.query);
+    const data = await Query.searchItemsByTerm(req.query);
     console.dir(data);
     res.render("search_result", {
       data,
@@ -25,11 +22,33 @@ router.get("/search/term_location", async (req, res) => {
 });
 
 // search based on category
-// query: /api/item/search/category?name=category&lat=lat&lng=lng&radius=radius
+// query: /api/item/search/category?category=category&lat=lat&lng=lng&radius=radius
 router.get("/search/category/", async (req, res) => {
   try {
-    const data = await searchItemsByCategory(req.query);
+    const data = await Query.searchItemsByCategory(req.query);
     res.render("search_result", { data, category: req.params.name });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+// search based on item id
+// query: /api/item/search/category?id=id&lat=lat&lng=lng&radius=radius
+router.get("/search/id", async (req, res) => {
+  try {
+    let item = (await Query.searchItemsById(req.query))[0];
+    // Add index to images for carousel
+    item.images = item.images.map((image, index) => {
+      return {
+        id: image.id,
+        index: index,
+      };
+    });
+    // res.json(item);
+    // return;
+
+    res.render("item_details", { item });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
