@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
 
         if (currentUser && checkPassword) {
             req.session.save(() => {
-                req.sesison.logged_in = true
+                req.session.logged_in = true
                 res.status(200).json({ message: 'login successful' })
             })
         }
