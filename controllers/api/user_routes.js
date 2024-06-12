@@ -41,7 +41,6 @@ router.post('/login', async (req, res) => {
         //get username, password from req body
         const { username, password } = req.body
 
-        // const user = await User.findOne(user => user.username === username)
         const currentUser = await User.findOne({ where: { username } })
 
         if (!currentUser) {
@@ -62,3 +61,16 @@ router.post('/login', async (req, res) => {
         res.status(400).json(error)
     }
 })
+
+//route for user logout
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end()
+        })
+    } else {
+        res.status(404).end()
+    }
+})
+
+module.exports = router
