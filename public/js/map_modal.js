@@ -74,6 +74,11 @@ async function setOutputValues(lat, lng) {
     console.error("Error getting address:", error);
     addressOutput.value = "Unknown address";
   }
+
+  localStorage.setItem(
+    "coords",
+    JSON.stringify({ lat, lng, address: addressOutput.value })
+  );
 }
 async function getMyPosition(event) {
   try {
