@@ -14,7 +14,7 @@
     <div class="col-9">
       <div class="row">
         {{#each data}}
-          <div class="col-12 col-md-4 col-xl-3 border">
+          <div class="col-12 col-md-4 col-xl-3 border item" data-item-id="{{this.id}}">
             <a href="#"><img src="/api/images/{{this.images.0.id}}" alt="" width="200" /></a>
             <a href="#"><h4>{{this.title}}</h4></a>
             <p>{{this.description}}</p>
@@ -28,3 +28,5 @@
     </div>
   </div>
 </div>
+
+<script src="/js/item.js"></script>
