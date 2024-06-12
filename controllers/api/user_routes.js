@@ -7,7 +7,7 @@ router.post('/signup', async (req, res) => {
     //logic for creating new user
     try {
         //get variables from req body
-        const { username, password, phone_email, address } = req.body
+        const { username, password, phone_email, address, latitude, longitude } = req.body
 
         //check if user exists by searching for username
         const existingUser = await User.findOne({ where: { username } })
@@ -16,15 +16,15 @@ router.post('/signup', async (req, res) => {
             res.status(400).json({ message: 'Username already exists' })
         }
 
-        //hash the password
-        const hashPassword = await bcrypt.hash(password, 10)
 
         //create new user
         const newUser = await User.create({
             username,
-            password: hashPassword,
+            password,
             phone_email,
-            address
+            address,
+            latitude,
+            longitude
         })
         //redirect to homepage once signup is successful
         res.status(200).json({ message: 'New user created' })
@@ -47,6 +47,11 @@ router.post('/login', async (req, res) => {
         if (!currentUser) {
             return res.status(404).json({ message: 'invalid username or password' })
         }
+
+        req.session.save(() => {
+            req.sesison.logged_in = true
+            res.status(200).json({ message: 'login successful' })
+        })
 
         const checkPassword = await bcrypt.compare(password, currentUser.password)
         if (!checkPassword) {
