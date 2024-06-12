@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
             longitude
         })
         //redirect to homepage once signup is successful
-        res.status(200).json({ message: 'New user created' })
+        res.status(200).json(newUser)
     } catch (error) {
         console.error(error)
         res.status(400).json(error)
@@ -47,15 +47,19 @@ router.post('/login', async (req, res) => {
             return res.status(404).json({ message: 'invalid username or password' })
         }
 
-        req.session.save(() => {
-            req.sesison.logged_in = true
-            res.status(200).json({ message: 'login successful' })
-        })
-
         const checkPassword = await bcrypt.compare(password, currentUser.password)
+
         if (!checkPassword) {
             return res.status(401).json({ message: 'invalid username or password' })
         }
+
+        if (currentUser && checkPassword) {
+            req.session.save(() => {
+                req.sesison.logged_in = true
+                res.status(200).json({ message: 'login successful' })
+            })
+        }
+
     } catch (error) {
         console.error(error)
         res.status(400).json(error)
