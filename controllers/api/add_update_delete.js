@@ -30,8 +30,36 @@ router.post('/new/items', upload.array('images', 3), async (req, res) => {
 })
 
 //update items
-router.put('/new/items/:id', async (req, res) => {
+router.put('/new/items/:id', upload.array('images', 3), async (req, res) => {
     //logic for updating items
+    try {
+        const updateItems = await item.update(req.body, {
+            where: {
+                item_id: req.params.id
+            }
+        })
+
+        if (req.files) {
+            await image.destroy({
+                where: {
+                    image_id: req.params.id
+                }
+            })
+
+            for (const newFile of req.files) {
+                await image.create({
+                    item_id: req.params.id,
+                    image: newFile.buffer
+                })
+            }
+        }
+
+        res.status(200).json(updateItems)
+
+    } catch (error) {
+        console.error(error)
+        res.status(400).json(error)
+    }
 })
 
 //delete items
