@@ -1,15 +1,5 @@
 "use strict";
 
-function findParentWithClass(element, className) {
-  while (element && element !== document) {
-    if (element.classList.contains(className)) {
-      return element;
-    }
-    element = element.parentNode;
-  }
-  return null;
-}
-
 async function deleteItem(event) {
   const deleteBtn = findParentWithClass(event.target, "delete-item");
   const itemId = deleteBtn.getAttribute("data-item-id");
