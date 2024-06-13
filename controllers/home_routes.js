@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
     const categories = await Category.getCategories();
     const freeItems = await getNFreeItems(20);
 
-    const data = { categories, freeItems };
+    const data = { categories, freeItems, username: req.session.username };
     res.render("homepage", { data });
   } catch (err) {
     console.error(err);
