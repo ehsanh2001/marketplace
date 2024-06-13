@@ -35,14 +35,14 @@ router.put('/new/items/:id', upload.array('images', 3), async (req, res) => {
     try {
         const updateItems = await item.update(req.body, {
             where: {
-                item_id: req.params.id
+                id: req.params.id
             }
         })
 
         if (req.files) {
             await image.destroy({
                 where: {
-                    image_id: req.params.id
+                    item_id: req.params.id
                 }
             })
 
@@ -63,6 +63,25 @@ router.put('/new/items/:id', upload.array('images', 3), async (req, res) => {
 })
 
 //delete items
-router.delete('/new/items/:id', (req, res) => {
-    //logic for deleting items
+router.delete('/new/items/:id', async (req, res) => {
+    try {
+        const deletedItem = await item.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+
+        await image.destroy({
+            where: {
+                item_id: req.params.id
+            }
+        })
+
+        res.status(200).json(deletedItem)
+    } catch (error) {
+        console.error(error)
+        res.status(400).json(error)
+    }
 })
+
+module.exports = router
