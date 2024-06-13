@@ -26,7 +26,12 @@ router.get("/search/term_location", async (req, res) => {
 router.get("/search/category/", async (req, res) => {
   try {
     const data = await Query.searchItemsByCategory(req.query);
-    res.render("search_result", { data, category: req.params.name });
+
+    res.render("search_result", {
+      data,
+      category: req.query.category,
+      radius: req.query.radius / 1000,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
