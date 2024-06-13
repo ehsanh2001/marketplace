@@ -9,9 +9,10 @@ const Query = require("../../models/queries");
 router.get("/search/term_location", async (req, res) => {
   try {
     const data = await Query.searchItemsByTerm(req.query);
-    console.dir(data);
+    const categories = await Category.getCategories();
     res.render("search_result", {
       data,
+      categories,
       term: req.query.term,
       radius: req.query.radius / 1000,
     });
@@ -26,9 +27,10 @@ router.get("/search/term_location", async (req, res) => {
 router.get("/search/category/", async (req, res) => {
   try {
     const data = await Query.searchItemsByCategory(req.query);
-
+    const categories = await Category.getCategories();
     res.render("search_result", {
       data,
+      categories,
       category: req.query.category,
       radius: req.query.radius / 1000,
     });
