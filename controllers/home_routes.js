@@ -3,6 +3,7 @@
 const router = require("express").Router();
 const { Category, Item } = require("../models");
 const { getNFreeItems } = require("../models/queries");
+const withAuth = require("../utils/auth_middleware");
 
 // Home page
 router.get("/", async (req, res) => {
@@ -31,9 +32,9 @@ router.get("/categories", async (req, res) => {
 });
 
 // Dashboard page
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    const data = {};
+    const data = { username: req.session.username };
     res.render("dashboard", { data });
   } catch (err) {
     console.error(err);
