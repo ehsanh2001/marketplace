@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { item, image } = require("../../models");
+const { Item, Image } = require("../../models");
 const multer = require("multer");
 
 const storage = multer.memoryStorage();
@@ -11,11 +11,11 @@ const upload = multer({
 //add items
 router.post("/new/items", upload.array("images", 3), async (req, res) => {
   try {
-    const newItem = await item.create(req.body);
+    const newItem = await Item.create(req.body);
 
     if (req.files) {
       for (const newFile of req.files) {
-        await image.create({
+        await Image.create({
           item_id: newItem.id,
           image: newFile.buffer,
         });
@@ -33,21 +33,21 @@ router.post("/new/items", upload.array("images", 3), async (req, res) => {
 router.put("/new/items/:id", upload.array("images", 3), async (req, res) => {
   //logic for updating items
   try {
-    const updateItems = await item.update(req.body, {
+    const updateItems = await Item.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
 
     if (req.files) {
-      await image.destroy({
+      await Image.destroy({
         where: {
           item_id: req.params.id,
         },
       });
 
       for (const newFile of req.files) {
-        await image.create({
+        await Image.create({
           item_id: req.params.id,
           image: newFile.buffer,
         });
@@ -64,13 +64,13 @@ router.put("/new/items/:id", upload.array("images", 3), async (req, res) => {
 //delete items
 router.delete("/new/items/:id", async (req, res) => {
   try {
-    const deletedItem = await item.destroy({
+    const deletedItem = await Item.destroy({
       where: {
         id: req.params.id,
       },
     });
 
-    await image.destroy({
+    await Image.destroy({
       where: {
         item_id: req.params.id,
       },

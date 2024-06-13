@@ -65,4 +65,16 @@ router.get("/signup", async (req, res) => {
   }
 });
 
+// new item page
+router.get("/new_item", withAuth, async (req, res) => {
+  try {
+    const categories = await Category.getCategories();
+    const data = { categories, username: req.session.username };
+    res.render("new_item", { data });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
