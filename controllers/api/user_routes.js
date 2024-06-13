@@ -12,9 +12,11 @@ router.post("/signup", async (req, res) => {
 
     //check if user exists by searching for username
     const existingUser = await User.findOne({ where: { username } });
+
     //if username exists, render message below
     if (existingUser) {
       res.status(400).json({ message: "Username already exists" });
+      return;
     }
 
     //create new user
@@ -26,8 +28,15 @@ router.post("/signup", async (req, res) => {
       latitude,
       longitude,
     });
-    //redirect to homepage once signup is successful
-    res.status(200).json(newUser);
+    //set session variables
+    //return 200 status
+    req.session.save(() => {
+      req.session.logged_in = true;
+      req.session.username = username;
+      res
+        .status(201)
+        .json({ message: "signup successful", username: username });
+    });
   } catch (error) {
     console.error(error);
     res.status(400).json(error);
@@ -56,6 +65,7 @@ router.post("/login", async (req, res) => {
     if (currentUser && checkPassword) {
       req.session.save(() => {
         req.session.logged_in = true;
+        req.session.username = currentUser.username;
         res.status(200).json({ message: "login successful" });
       });
     }
