@@ -9,8 +9,24 @@ const upload = multer({
 })
 
 //add items
-router.post('/new/items', async (req, res) => {
-    //logic for adding items
+router.post('/new/items', upload.array('images', 3), async (req, res) => {
+    try {
+        const newItem = await item.create(req.body)
+
+        if (req.files) {
+            for (const newFile of req.files) {
+                await image.create({
+                    item_id: newItem.id,
+                    image: newFile.buffer
+                })
+            }
+        }
+
+        res.status(200).json(newItem)
+    } catch (error) {
+        console.error(error)
+        res.status(400).json(error)
+    }
 })
 
 //update items
