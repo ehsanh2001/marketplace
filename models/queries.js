@@ -1,7 +1,7 @@
 "use strict";
 
 const sequelize = require("../config/connection");
-const { Item, Image } = require("../models");
+const { Item, Image, User } = require("../models");
 
 async function getNFreeItems(n) {
   try {
@@ -85,9 +85,22 @@ async function searchItemsById(searchParams) {
   return await searchItems(searchParams, `item.id = ${id}`);
 }
 
+async function searchUserByUsername(username) {
+  try {
+    const user = await User.findOne({
+      where: { username: username },
+      include: [{ model: Item, attributes: ["id", "title", "created_at"] }],
+    });
+    return user.get({ plain: true });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 module.exports = {
   getNFreeItems,
   searchItemsByCategory,
   searchItemsByTerm,
   searchItemsById,
+  searchUserByUsername,
 };

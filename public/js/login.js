@@ -5,7 +5,6 @@ async function login(e) {
 
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-  console.log(username);
   const response = await fetch("/api/users/login", {
     method: "POST",
     headers: {

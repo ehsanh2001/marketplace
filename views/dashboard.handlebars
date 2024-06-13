@@ -1,3 +1,45 @@
 <h1>Dashboard</h1>
 
 <p>Welcome, {{data.username}}!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Items</h2>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary">New Item</button>
+  </div>
+  <div class="row">
+    {{#each data.user.items}}
+      <div class="col-12 border my-2">
+        <div class="row">
+          <div class="col-8">
+            <p>{{this.title}}</p>
+          </div>
+          <div class="col-4 d-flex justify-content-end">
+            <button
+              class="btn btn-primary mx-1"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Edit Item"
+              data-item-id="{{this.id}}"
+            ><span class="material-symbols-outlined">
+                edit
+              </span></button>
+            <button
+              class="btn btn-danger"
+              data-item-id="{{this.id}}"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Delete Item"
+            ><span class="material-symbols-outlined">
+                delete
+              </span></button>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
