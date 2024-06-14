@@ -101,12 +101,6 @@ router.put("/:id", upload.array("images", 3), async (req, res) => {
     });
 
     if (req.files) {
-      await Image.destroy({
-        where: {
-          item_id: req.params.id,
-        },
-      });
-
       for (const newFile of req.files) {
         await Image.create({
           item_id: req.params.id,

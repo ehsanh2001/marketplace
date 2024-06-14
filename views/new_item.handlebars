@@ -6,7 +6,11 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-4">
       <h2>New Item</h2>
-      <form id="new-item-form" enctype="multipart/form-data">
+      <form
+        id="new-item-form"
+        onsubmit="formSubmitNew(event, this)"
+        enctype="multipart/form-data"
+      >
         <input
           type="hidden"
           name="username"
@@ -14,12 +18,12 @@
           value="{{data.username}}"
         />
         {{! Category }}
+        <label for="cat_name">Category</label>
         <select
           name="cat_name"
           class="form-select"
           aria-label="Default select example"
         >
-          <option selected>Category</option>
           {{#each data.categories}}
             <option value="{{this.name}}">{{this.name}}</option>
           {{/each}}
@@ -99,4 +103,4 @@
   </div>
 </div>
 
-<script src="/js/new_item.js"></script>
+<script src="/js/new_edit_item.js"></script>

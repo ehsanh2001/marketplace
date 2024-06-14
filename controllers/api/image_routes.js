@@ -5,8 +5,7 @@ const { Image } = require("../../models");
 
 //  /api/images
 
-// Each item can have multiple images.
-// :image is the number of the image in the sequence of images for that item.
+// Get image by id
 router.get("/:id", async (req, res) => {
   try {
     // Find all images for the item
@@ -27,6 +26,28 @@ router.get("/:id", async (req, res) => {
     res.setHeader("Content-Disposition", `inline; filename="${image.id}"`);
     res.setHeader("Content-Type", "image/jpeg");
     res.send(image.image);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+// delete image by id
+router.delete("/:id", async (req, res) => {
+  try {
+    const imageData = await Image.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    // If no images are found for the item, return a 404 error
+    if (!imageData) {
+      res.status(404).json({ message: "No image found with this id!" });
+      return;
+    }
+
+    res.status(204).json({ message: "Image deleted successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
