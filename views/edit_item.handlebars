@@ -1,0 +1,101 @@
+<style>
+  .thumbnail { width: 200px; height: 200px; object-fit: cover; margin: 5px; }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <h2>Edit Item</h2>
+      <form id="new-item-form" action="/api/items" method="post">
+        <input
+          type="hidden"
+          name="username"
+          id="username"
+          value="{{data.username}}"
+        />
+        {{! Category }}
+        <select
+          name="cat_name"
+          class="form-select"
+          aria-label="Default select example"
+        ><option
+            value="{{data.item.cat_name}}"
+            selected
+          >{{data.item.cat_name}}</option>
+          {{#each data.categories}}
+            <option value="{{this.name}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+        {{! Title }}
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            value="{{data.item.title}}"
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            required
+          />
+        </div>
+        {{! Description }}
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            required
+          >{{data.item.description}}</textarea>
+        </div>
+        {{! Price }}
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            value="{{data.item.price}}"
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            required
+          />
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="0"
+              id="freeCheckbox"
+            />
+            <label class="form-check-label" for="freeCheckbox">
+              Free
+            </label>
+          </div>
+        </div>
+        {{! Image }}
+        <div class="form-group my-3">
+          <label for="image-upload">Image (max 3 files)</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="image-upload"
+            name="images[]"
+            multiple
+            accept="image/*"
+            required
+          />
+        </div>
+        <div id="image-previews" class="d-flex flex-wrap"></div>
+        {{! Cancel button }}
+        <a href="/dashboard" class="btn btn-secondary">
+          Cancel
+        </a>
+        {{! Submit button }}
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/js/edit_item.js"></script>

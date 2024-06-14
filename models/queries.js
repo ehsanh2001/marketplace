@@ -47,6 +47,7 @@ async function searchItems(searchParams, addedWhereClause) {
       const found = acc.find((item) => item.id === curr.id);
       if (!found) {
         acc.push({
+          cat_name: curr.cat_name,
           id: curr.id,
           title: curr.title,
           description: curr.description,
@@ -81,7 +82,7 @@ async function searchItemsByCategory(searchParams) {
 
 async function searchItemsById(searchParams) {
   const { id } = searchParams;
-  searchParams.radius = 1000000; // search all disrances
+  searchParams.radius = searchParams.radius || 1000000; // search all disrances
   return await searchItems(searchParams, `item.id = ${id}`);
 }
 

@@ -20,10 +20,22 @@ async function deleteItem(event) {
   }
 }
 
+async function editItem(event) {
+  const editBtn = findParentWithClass(event.target, "edit-item");
+  const itemId = editBtn.getAttribute("data-item-id");
+
+  window.location.href = `/edit_item/${itemId}`;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const deleteButtons = [...document.querySelectorAll(".delete-item")];
+  const editButtons = [...document.querySelectorAll(".edit-item")];
 
   deleteButtons.forEach((button) => {
     button.addEventListener("click", deleteItem);
+  });
+
+  editButtons.forEach((button) => {
+    button.addEventListener("click", editItem);
   });
 });
