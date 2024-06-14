@@ -100,7 +100,7 @@ async function getMyPosition(event) {
 function setAdress() {
   const searchLocationBtn = document.querySelector("#search-location");
   const shortAddress = addressOutput.value.split(",")[0];
-  searchLocationBtn.textContent = shortAddress;
+  searchLocationBtn.textContent = "Location: " + shortAddress;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {

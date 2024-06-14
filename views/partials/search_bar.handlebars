@@ -1,8 +1,11 @@
 
 <!-- Search bar -->
     <div class="container mt-5 mb-1">
-      <div class="row">
-        <div class="col-12 col-sm-2 justify-content-end d-flex">
+      <fieldset class="border mb-2">
+      <div class="row mb-2">
+         
+        <legend>Search Radius</legend>
+        <div class="col-12 col-sm-3 ">
           {{!-- search-location button. It shows the modal for map --}}
           <button
             id="search-location"
@@ -15,8 +18,23 @@
             &nbsp &nbsp Location
           </button>
         </div>
+        <!-- select search radius -->
+        <div class="col-12 col-sm-5">
+          <select id="search-radius" class="form-select" aria-label="search radius">
+            <option value="50" selected>50 km radius</option>
+            <option value="20">20 km radius</option>
+            <option value="10">10 km radius</option>
+            <option value="5">5 km radius</option>
+            <option value="2">2 km radius</option>
+            <option value="1">1 km radius</option>
+            <option value="1000">Search anywhere</option>
+          </select>
+        </div>
+        </div>
+        </fieldset>
+        <div class="row">
         {{!-- search term --}}
-        <div class="col-12 col-sm-6">
+        <div class="col-12 col-sm-10">
           <input
           id="search-term"
             class="form-control"
@@ -25,17 +43,7 @@
             aria-label="default input example"
           />
         </div>
-        <div class="col-12 col-sm-3">
-          <!-- select search radius -->
-          <select id="search-radius" class="form-select" aria-label="search radius">
-            <option value="1000" selected>Search anywhere</option>
-            <option value="1">1 km radius</option>
-            <option value="2">2 km radius</option>
-            <option value="5">5 km radius</option>
-            <option value="10">10 km radius</option>
-            <option value="20">20 km radius</option>
-          </select>
-        </div>
+        {{!-- search button --}}
         <div class="col-12 col-sm-1">
           <div class="d-grid gap-2 d-sm-block">
             <button id="search-btn" type="button" class="btn btn-primary btn-block">

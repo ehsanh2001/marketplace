@@ -24,6 +24,7 @@ router.get("/search/term_location", async (req, res) => {
       radius: req.query.radius / 1000,
       username: req.session.username,
     };
+    data.radius = data.radius < 1000 ? data.radius + " km radius" : "Anywhere";
     res.render("search_result", { data });
   } catch (err) {
     console.error(err);
@@ -43,7 +44,9 @@ router.get("/search/category/", async (req, res) => {
       term: req.query.term,
       radius: req.query.radius / 1000,
       username: req.session.username,
+      category: req.query.category,
     };
+    data.radius = data.radius < 1000 ? data.radius + " km radius" : "Anywhere";
     res.render("search_result", { data });
   } catch (err) {
     console.error(err);

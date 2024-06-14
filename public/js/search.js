@@ -37,6 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const coords = JSON.parse(localStorage.getItem("coords"));
   if (coords && coords.address) {
     document.querySelector("#search-location").textContent =
-      coords.address.split(",")[0];
+      "Location: " + coords.address.split(",")[0];
   }
 });
