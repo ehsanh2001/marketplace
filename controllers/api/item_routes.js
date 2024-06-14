@@ -82,8 +82,8 @@ router.post("/", upload.array("images", 3), async (req, res) => {
         });
       }
     }
-
-    res.redirect("/dashboard");
+    res.status(200).json(newItem);
+    //res.redirect("/dashboard");
   } catch (error) {
     console.error(error);
     res.status(400).json(error);

@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-4">
       <h2>New Item</h2>
-      <form id="new-item-form" action="/api/items" method="post">
+      <form id="new-item-form" enctype="multipart/form-data">
         <input
           type="hidden"
           name="username"
@@ -69,15 +69,20 @@
         </div>
         {{! Image }}
         <div class="form-group my-3">
-          <label for="image-upload">Image (max 3 files)</label>
+          <button
+            type="button"
+            id="image-upload-button"
+            class="btn btn-primary"
+            onclick="document.getElementById('image-upload').click();"
+          >Choose Image...</button>
           <input
+            {{! we use the button to show the openfile dialog so the name of the file won't be apeared in the output }}
+            style="display:none;"
             type="file"
             class="form-control-file"
             id="image-upload"
             name="images[]"
-            multiple
             accept="image/*"
-            required
           />
         </div>
         <div id="image-previews" class="d-flex flex-wrap"></div>
