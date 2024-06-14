@@ -72,7 +72,10 @@ async function searchItems(searchParams, addedWhereClause) {
 
 async function searchItemsByTerm(searchParams) {
   const { term } = searchParams;
-  return await searchItems(searchParams, `title ilike '%${term}%'`);
+  return await searchItems(
+    searchParams,
+    `concat(' ',title,' ') ilike '% ${term} %'`
+  );
 }
 
 async function searchItemsByCategory(searchParams) {
