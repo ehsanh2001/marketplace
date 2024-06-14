@@ -92,8 +92,7 @@ router.get("/edit_item/:id", withAuth, async (req, res) => {
       lng: 0,
       radius: 9999999999999999, // just a big number
     });
-    console.log("=============================");
-    console.dir(item, { depth: 3 });
+
     const categories = await Category.getCategories();
     const data = { item: item[0], categories, username: req.session.username };
     res.render("edit_item", { data });

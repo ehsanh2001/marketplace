@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("freeCheckbox")
     .addEventListener("click", async function (event) {
       const priceInput = document.getElementById("price");
-      priceInput.disabled = event.target.checked;
-      priceInput.value = event.target.checked ? 0 : "";
+      priceInput.readOnly = event.target.checked;
+      priceInput.value = "0";
     });
 });
