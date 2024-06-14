@@ -15,14 +15,16 @@ const upload = multer({
 // query: /api/item/term_location?term=term&lat=lat&lng=lng&radius=radius
 router.get("/search/term_location", async (req, res) => {
   try {
-    const data = await Query.searchItemsByTerm(req.query);
+    const items = await Query.searchItemsByTerm(req.query);
     const categories = await Category.getCategories();
-    res.render("search_result", {
-      data,
+    const data = {
+      items,
       categories,
       term: req.query.term,
       radius: req.query.radius / 1000,
-    });
+      username: req.session.username,
+    };
+    res.render("search_result", { data });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -33,14 +35,16 @@ router.get("/search/term_location", async (req, res) => {
 // query: /api/item/search/category?category=category&lat=lat&lng=lng&radius=radius
 router.get("/search/category/", async (req, res) => {
   try {
-    const data = await Query.searchItemsByCategory(req.query);
+    const items = await Query.searchItemsByCategory(req.query);
     const categories = await Category.getCategories();
-    res.render("search_result", {
-      data,
+    const data = {
+      items,
       categories,
-      category: req.query.category,
+      term: req.query.term,
       radius: req.query.radius / 1000,
-    });
+      username: req.session.username,
+    };
+    res.render("search_result", { data });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -59,10 +63,9 @@ router.get("/search/id", async (req, res) => {
         index: index,
       };
     });
-    // res.json(item);
-    // return;
 
-    res.render("item_details", { item });
+    const data = { item, username: req.session.username };
+    res.render("item_details", { data });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

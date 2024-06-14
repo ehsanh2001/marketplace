@@ -1,11 +1,11 @@
 {{> search_bar}}
 
-{{#if term}}
-  <div class = "mt-5 h1 orange">Results for "{{term}}" in {{radius}} km radius from you</div>
+{{#if data.term}}
+  <div class = "mt-5 h1 orange">Results for "{{data.term}}" in {{data.radius}} km radius from you</div>
 {{/if}}
 
-{{#if category}}
-  <div class = "mt-5 h1 orange">Results for "{{category}}" category in {{radius}} km radius from you</div>
+{{#if data.category}}
+  <div class = "mt-5 h1 orange">Results for "{{data.category}}" category in {{data.radius}} km radius from you</div>
 {{/if}}
 
 <div class="container-fluid">
@@ -15,7 +15,7 @@
       <h3>Categories</h3>
       <hr>
       <div class="row">
-        {{#each categories}}
+        {{#each data.categories}}
           <div class="col-12 category-item"  data-category-name="{{this.name}}">
             <button type="button" class="btn btn-light">{{this.name}}</button>
           </div>
@@ -25,7 +25,7 @@
     {{!-- main panel --}}
     <div class="col-12 col-md-9 ms-5">
       <div class="row">
-        {{#each data}}
+        {{#each data.items}}
           <div class="col-12 col-md-4 col-xl-3 border item" data-item-id="{{this.id}}">
             <a href="#"><img src="/api/images/{{this.images.0.id}}" alt="" width="200" /></a>
             <a href="#"><h4>{{this.title}}</h4></a>

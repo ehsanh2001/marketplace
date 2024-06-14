@@ -28,7 +28,8 @@ router.get("/categories", async (req, res) => {
   try {
     const categories = await Category.getCategories();
 
-    res.render("categories", { categories });
+    const data = { categories, username: req.session.username };
+    res.render("categories", { data });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
