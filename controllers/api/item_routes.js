@@ -4,6 +4,7 @@ const router = require("express").Router();
 const { Category, Item, Image } = require("../../models");
 const Query = require("../../models/queries");
 const multer = require("multer");
+const withAuth = require("../../utils/auth_middleware");
 
 const storage = multer.memoryStorage();
 const upload = multer({
@@ -76,7 +77,7 @@ router.get("/search/id", async (req, res) => {
 });
 
 //add items
-router.post("/", upload.array("images", 3), async (req, res) => {
+router.post("/", withAuth, upload.array("images", 3), async (req, res) => {
   try {
     const newItem = await Item.create(req.body);
 
@@ -97,7 +98,7 @@ router.post("/", upload.array("images", 3), async (req, res) => {
 });
 
 //update items
-router.put("/:id", upload.array("images", 3), async (req, res) => {
+router.put("/:id", withAuth, upload.array("images", 3), async (req, res) => {
   //logic for updating items
   try {
     const updateItems = await Item.update(req.body, {
@@ -123,7 +124,7 @@ router.put("/:id", upload.array("images", 3), async (req, res) => {
 });
 
 //delete items
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const deletedItem = await Item.destroy({
       where: {

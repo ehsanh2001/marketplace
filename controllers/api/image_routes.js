@@ -2,6 +2,7 @@
 
 const router = require("express").Router();
 const { Image } = require("../../models");
+const withAuth = require("../../utils/auth_middleware");
 
 //  /api/images
 
@@ -33,7 +34,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // delete image by id
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const imageData = await Image.destroy({
       where: {
