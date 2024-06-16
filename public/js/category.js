@@ -15,7 +15,7 @@ function categoryClicked(e) {
   let radius = document.querySelector("#search-radius").value.trim();
   radius = parseFloat(radius) * 1000;
 
-  let url = new URL("/api/items/search/category", window.location.origin);
+  let url = new URL("/search/category", window.location.origin);
   url.searchParams.append("lat", lat);
   url.searchParams.append("lng", lng);
   url.searchParams.append("category", category);

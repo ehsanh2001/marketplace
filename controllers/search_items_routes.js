@@ -68,4 +68,22 @@ router.get("/id", async (req, res) => {
   }
 });
 
+// search all free items
+router.get("/free", async (req, res) => {
+  try {
+    const items = await Query.getNFreeItems(1000); // get 1000 free items
+    const categories = await Category.getCategories();
+    const data = {
+      items,
+      categories,
+      term: "free",
+      radius: "Anywhere",
+      username: req.session.username,
+    };
+    res.render("search_result", { data });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
 module.exports = router;

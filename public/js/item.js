@@ -15,7 +15,7 @@ function itemClicked(e) {
   let radius = document.querySelector("#search-radius").value.trim();
   radius = parseFloat(radius) * 1000;
 
-  let url = new URL("/api/items/search/id", window.location.origin);
+  let url = new URL("/search/id", window.location.origin);
   url.searchParams.append("lat", lat);
   url.searchParams.append("lng", lng);
   url.searchParams.append("id", itemId);
