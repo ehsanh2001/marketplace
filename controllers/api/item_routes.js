@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-const express = require('express');
-const router = express.Router();
-const itemController = require('../item');
-
-router.get('/', itemController.listItems);
-router.get('/add', itemController.addItemForm);
-router.post('/add', itemController.addItem);
-router.get('/free', itemController.listFreeItems);  // Route for free items
-router.get('/edit/:id', itemController.editItemForm);  // Route for editing an item
-router.post('/edit/:id', itemController.editItem);     // Route for submitting the edit
-router.get('/delete/:id', itemController.deleteItem);  // Route for deleting an item
-
-=======
-"use strict";
-
 const router = require("express").Router();
 const { Category, Item, Image } = require("../../models");
 const Query = require("../../models/queries");
@@ -89,7 +73,7 @@ router.get("/search/id", async (req, res) => {
   }
 });
 
-//add items
+// add items
 router.post("/", upload.array("images", 3), async (req, res) => {
   try {
     const newItem = await Item.create(req.body);
@@ -103,16 +87,14 @@ router.post("/", upload.array("images", 3), async (req, res) => {
       }
     }
     res.status(200).json(newItem);
-    //res.redirect("/dashboard");
   } catch (error) {
     console.error(error);
     res.status(400).json(error);
   }
 });
 
-//update items
+// update items
 router.put("/:id", upload.array("images", 3), async (req, res) => {
-  //logic for updating items
   try {
     const updateItems = await Item.update(req.body, {
       where: {
@@ -136,7 +118,7 @@ router.put("/:id", upload.array("images", 3), async (req, res) => {
   }
 });
 
-//delete items
+// delete items
 router.delete("/:id", async (req, res) => {
   try {
     const deletedItem = await Item.destroy({
@@ -157,6 +139,5 @@ router.delete("/:id", async (req, res) => {
     res.status(400).json(error);
   }
 });
->>>>>>> ad550a486ac720f31964b37e887eb910d02b0cce
 
 module.exports = router;
