@@ -1,1 +1,11 @@
 <h1>Dashboard</h1>
+<ul>
+  {{#each items}}
+    <li>
+      {{this.title}} - {{this.username}} - ${{this.price}} - {{this.cat_name}} - Added on: {{this.created_at}}
+      <a href="/items/edit/{{this.id}}">Edit</a>
+      <a href="/items/delete/{{this.id}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+    </li>
+  {{/each}}
+</ul>
+<a href="/items/add">Add New Item</a>
