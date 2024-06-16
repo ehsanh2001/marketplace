@@ -3,8 +3,8 @@
 <hr/>
 <div class="container">
     <div class="row my-5 py-5 border">
+         {{!-- photo carosel --}}
         <div class="col-md-8">
-        {{!-- photo carosel --}}
             <div id="images-carousel" class="carousel slide" data-bs-ride="carousel">
 
              <!-- Indicators/dots -->
@@ -52,3 +52,26 @@
         </div>
     </div>
 </div>
+
+
+{{!-- suggested items --}}
+<div class="col-12 col-md-9 ms-5  mt-5">
+    <hr>
+    <h3>Suggested Items</h3>
+    <hr>
+    <div class="row border-top">
+        {{#each data.suggestedItems}}
+        <div class="col-12 col-md-4 col-xl-3 border item" data-item-id="{{this.id}}">
+            <a href="#"><img src="/api/images/{{this.images.0.id}}" alt="" width="200" /></a>
+            <a href="#"><h4>{{this.title}}</h4></a>
+            <p>{{this.description}}</p>
+            <p>Price: ${{this.price}}</p>
+            {{#if this.distance}}
+            <p>Distance: {{this.distance}} km</p>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="/js/item.js"></script>

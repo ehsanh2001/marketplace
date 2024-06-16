@@ -52,6 +52,12 @@ router.get("/category", async (req, res) => {
 router.get("/id", async (req, res) => {
   try {
     let item = (await Query.searchItemsById(req.query))[0];
+    let suggestedItems = await Query.getNSuggestedItems(
+      item.title,
+      req.query,
+      4
+    );
+    console.dir(item);
     // Add index to images for carousel
     item.images = item.images.map((image, index) => {
       return {
@@ -60,7 +66,7 @@ router.get("/id", async (req, res) => {
       };
     });
 
-    const data = { item, username: req.session.username };
+    const data = { item, username: req.session.username, suggestedItems };
     res.render("item_details", { data });
   } catch (err) {
     console.error(err);
