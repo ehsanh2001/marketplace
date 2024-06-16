@@ -10,13 +10,13 @@ async function formSubmit(e) {
   const phoneEmail = form.phone_email.value;
 
   if (password !== rePassword) {
-    alert("Passwords do not match");
+    showErrorModal("Passwords do not match");
     return;
   }
 
   const searchLocationBtn = document.querySelector("#search-location");
   if (searchLocationBtn.textContent.includes("Map")) {
-    alert("Please select a location from the map");
+    showErrorModal("Please select a location from the map");
     return;
   }
   // Create the User data object
@@ -30,23 +30,60 @@ async function formSubmit(e) {
     longitude: lngOutput.value,
   };
 
-  const response = await fetch("/api/users/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  });
+  try {
+    const response = await fetch("/api/users/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
 
-  if (response.ok) {
-    document.location.replace("/dashboard");
-  } else {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data = await response.json();
-    alert(data.message || "Failed to sign up. Please try again.");
+    if (data.message === "signup successful") {
+      showSuccessModal("Signup successful! Redirecting to dashboard...");
+      setTimeout(() => {
+        document.location.replace("/dashboard");
+      }, 2000); // Redirect after 2 seconds
+    } else {
+      showErrorModal(data.message || "Failed to sign up. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    showErrorModal("Failed to sign up. Please try again.");
   }
+}
+
+function showSuccessModal(message) {
+  const successModal = new bootstrap.Modal(document.getElementById('successModal'), {
+    backdrop: 'static', // Prevent closing modal on backdrop click
+    keyboard: false // Prevent closing modal on ESC key
+  });
+  
+  const successMessageElement = document.getElementById('successMessage');
+  successMessageElement.textContent = message;
+  
+  successModal.show();
+}
+
+function showErrorModal(message) {
+  const errorModal = new bootstrap.Modal(document.getElementById('errorModal'), {
+    backdrop: 'static', // Prevent closing modal on backdrop click
+    keyboard: false // Prevent closing modal on ESC key
+  });
+  
+  const errorMessageElement = document.getElementById('errorMessage');
+  errorMessageElement.textContent = message;
+  
+  errorModal.show();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("#signup-form");
   form.addEventListener("submit", formSubmit);
 });
+

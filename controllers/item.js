@@ -42,16 +42,17 @@ exports.listFreeItems = async (req, res) => {
 };
 
 exports.deleteItem = async (req, res) => {
-    try {
-      const { id } = req.params;
-      await Item.destroy({ where: { id } });
-      res.redirect('/dashboard');
-    } catch (err) {
-      console.error(err);
-      res.status(500).send('Server Error');
-    }
-  };
+  try {
+    const { id } = req.params;
+    await Item.destroy({ where: { id } });
+    res.render('items/deleteSuccess', { itemDeleted: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+};
   
+
   exports.editItemForm = async (req, res) => {
     try {
       const { id } = req.params;
