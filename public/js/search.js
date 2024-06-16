@@ -5,14 +5,14 @@ const searchFormHandler = async (event) => {
 
   const coords = JSON.parse(localStorage.getItem("coords"));
   if (!coords) {
-    alert("Please enter a location to search for items");
+    showMessageModal("Error", "Please select a location");
     return;
   }
   const { lat, lng } = coords;
 
   const term = document.querySelector("#search-term").value.trim();
   if (!term) {
-    alert("Please enter a search term");
+    showMessageModal("Error", "Please enter a search term");
     return;
   }
   let radius = document.querySelector("#search-radius").value.trim();

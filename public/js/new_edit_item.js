@@ -90,7 +90,7 @@ async function formSubmitNew(event, form) {
   event.preventDefault();
   //if no image files are selected, do not submit the form
   if (imageFiles.length == 0) {
-    alert("Please select at least one image.");
+    showMessageModal("Error", "Please select at least one image.");
     return;
   }
   const formData = new FormData(form);
@@ -106,7 +106,7 @@ async function formSubmitNew(event, form) {
     if (response.ok) {
       window.location.href = "/dashboard";
     } else {
-      alert("Cannot create item. Please try again.");
+      showMessageModal("Error", "Cannot create item. Please try again.");
       return;
     }
   } catch (err) {
@@ -121,7 +121,7 @@ async function deletedServerImages() {
         method: "DELETE",
       });
       if (!response.ok) {
-        alert("Cannot delete image. Please try again.");
+        showMessageModal("Error", "Cannot delete image. Please try again.");
         throw new Error("Cannot delete image");
       }
     } catch (err) {
@@ -133,7 +133,7 @@ async function formSubmitEdit(event, form) {
   event.preventDefault();
   //if no image files are selected, do not submit the form
   if (imageFiles.length + serverImageIDs.length === 0) {
-    alert("Please select at least one image.");
+    showMessageModal("Error", "Please select at least one image.");
     return;
   }
 
@@ -153,7 +153,7 @@ async function formSubmitEdit(event, form) {
     if (response.ok) {
       window.location.href = "/dashboard";
     } else {
-      alert("Cannot update item. Please try again.");
+      showMessageModal("Error", "Cannot update item. Please try again.");
       return;
     }
   } catch (err) {

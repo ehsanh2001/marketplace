@@ -12,7 +12,7 @@ async function deleteItem(event) {
     if (response.ok) {
       window.location.href = "/dashboard";
     } else {
-      alert("Failed to delete item");
+      showMessageModal("Error", "Failed to delete item");
       return;
     }
   } catch (error) {

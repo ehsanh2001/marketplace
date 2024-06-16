@@ -10,13 +10,13 @@ async function formSubmit(e) {
   const phoneEmail = form.phone_email.value;
 
   if (password !== rePassword) {
-    alert("Passwords do not match");
+    showMessageModal("Error", "Passwords do not match");
     return;
   }
 
   const searchLocationBtn = document.querySelector("#search-location");
   if (searchLocationBtn.textContent.includes("Map")) {
-    alert("Please select a location from the map");
+    showMessageModal("Error", "Please select a location from the map");
     return;
   }
   // Create the User data object
@@ -42,7 +42,10 @@ async function formSubmit(e) {
     document.location.replace("/dashboard");
   } else {
     const data = await response.json();
-    alert(data.message || "Failed to sign up. Please try again.");
+    showMessageModal(
+      "Error",
+      data.message || "Failed to sign up. Please try again."
+    );
   }
 }
 
