@@ -74,6 +74,11 @@ async function setOutputValues(lat, lng) {
     console.error("Error getting address:", error);
     addressOutput.value = "Unknown address";
   }
+
+  localStorage.setItem(
+    "coords",
+    JSON.stringify({ lat, lng, address: addressOutput.value })
+  );
 }
 async function getMyPosition(event) {
   try {
@@ -95,7 +100,7 @@ async function getMyPosition(event) {
 function setAdress() {
   const searchLocationBtn = document.querySelector("#search-location");
   const shortAddress = addressOutput.value.split(",")[0];
-  searchLocationBtn.textContent = shortAddress;
+  searchLocationBtn.textContent = "Location: " + shortAddress;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {

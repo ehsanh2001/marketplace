@@ -2,22 +2,9 @@
 
 const sequelize = require("../config/connection");
 const { Model, DataTypes, literal } = require("sequelize");
+const { Image } = require("./index");
 
-class Item extends Model {
-  static async getNFreeItems(n) {
-    try {
-      const freeItemsData = await this.findAll({
-        attributes: ["id", "title"],
-        where: { price: 0 },
-        order: [["created_at", "DESC"]],
-        limit: n,
-      });
-      return freeItemsData.map((item) => item.get({ plain: true }));
-    } catch (err) {
-      console.error(err);
-    }
-  }
-}
+class Item extends Model {}
 
 Item.init(
   {

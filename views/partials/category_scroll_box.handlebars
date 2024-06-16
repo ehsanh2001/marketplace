@@ -4,7 +4,11 @@
 
   <div class="scroll-container">
     {{#each items}}
-      <div class="item item-round" data-item-title="{{this.name}}">
+      <div
+        class="item-box item-box-round category-item"
+        data-item-title="{{this.name}}"
+        data-category-name="{{this.name}}"
+      >
         <a href="#">
           <img src="/api/categories/image/{{this.name}}" alt="{{this.name}}" />
         </a>
@@ -19,3 +23,5 @@
   </button>
 
 </div>
+
+<script src="/js/category.js"></script>

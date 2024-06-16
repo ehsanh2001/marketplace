@@ -1,4 +1,5 @@
 <h1>Dashboard</h1>
+<<<<<<< HEAD
 <ul>
   {{#each items}}
     <li>
@@ -9,3 +10,53 @@
   {{/each}}
 </ul>
 <a href="/items/add">Add New Item</a>
+=======
+
+<p>Welcome, {{data.username}}!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Items</h2>
+    </div>
+  </div>
+  <div class="row">
+    <a href="/new_item" class="btn btn-primary">
+      New Item
+    </a>
+  </div>
+  <div class="row">
+    {{#each data.user.items}}
+      <div class="col-12 border my-2">
+        <div class="row">
+          <div class="col-8">
+            <p>{{this.title}}</p>
+          </div>
+          <div class="col-4 d-flex justify-content-end">
+            <button
+              class="btn btn-primary mx-1 edit-item"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Edit Item"
+              data-item-id="{{this.id}}"
+            ><span class="material-symbols-outlined">
+                edit
+              </span></button>
+            <button
+              class="btn btn-danger delete-item"
+              data-item-id="{{this.id}}"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Delete Item"
+            ><span class="material-symbols-outlined">
+                delete
+              </span></button>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+>>>>>>> ad550a486ac720f31964b37e887eb910d02b0cce

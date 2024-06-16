@@ -1,12 +1,4 @@
-function findParentWithClass(element, className) {
-  while (element && element !== document) {
-    if (element.classList.contains(className)) {
-      return element;
-    }
-    element = element.parentNode;
-  }
-  return null;
-}
+"use strict";
 
 function scrollLeft(e) {
   const parent = findParentWithClass(e.target, "scroll-parent");

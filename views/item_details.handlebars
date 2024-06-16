@@ -1,0 +1,54 @@
+{{> search_bar }}
+
+<hr/>
+<div class="container">
+    <div class="row my-5 py-5 border">
+        <div class="col-md-8">
+        {{!-- photo carosel --}}
+            <div id="images-carousel" class="carousel slide" data-bs-ride="carousel">
+
+             <!-- Indicators/dots -->
+    
+                <div class="carousel-indicators">
+                    {{#each data.item.images}}
+                        <button type="button" data-bs-target="#images-carousel" data-bs-slide-to="{{this.index}}" class="active"></button>
+                    {{/each}}    
+                </div>
+        
+
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner" style="background-color:aqua">
+                {{#each data.item.images}}
+                    {{#unless this.index}}
+                        <div class="carousel-item active">
+                            <img src="/api/images/{{this.id}}" alt="{{item.title}}" class="d-block h-100">
+                        </div>
+                    {{else}}
+                        <div class="carousel-item">
+                            <img src="/api/images/{{this.id}}" alt="{{data.item.title}}" class="d-block h-100">
+                        </div>
+                    {{/unless}}
+                {{/each}}
+                </div>
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#images-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#images-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+        {{!-- item details --}}
+        <div class="col-md-4 pt-5">
+            <h2>{{data.item.title}}</h2>
+            <p>{{data.item.description}}</p>
+            <p>Price: ${{data.item.price}}</p>
+            <p>Distance: {{data.item.distance}} km</p>
+            <h4>Contact Info:</h4>
+            <p class="ms-4">{{data.item.phone_email}}</p>
+
+        </div>
+    </div>
+</div>

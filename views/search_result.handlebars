@@ -1,0 +1,45 @@
+{{> search_bar}}
+
+{{#if data.term}}
+  <div class = "mt-5 h1 orange">Results for "{{data.term}}" in {{data.radius}}</div>
+{{/if}}
+
+{{#if data.category}}
+  <div class = "mt-5 h1 orange">Results for "{{data.category}}" category in {{data.radius}}</div>
+{{/if}}
+
+<div class="container-fluid">
+  <div class="row mt-4">
+    {{!-- Left panel --}}
+    <div class="col-12 col-md-2 bg-light border mx-2">
+      <h3>Categories</h3>
+      <hr>
+      <div class="row">
+        {{#each data.categories}}
+          <div class="col-12 category-item"  data-category-name="{{this.name}}">
+            <button type="button" class="btn btn-light">{{this.name}}</button>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    {{!-- main panel --}}
+    <div class="col-12 col-md-9 ms-5">
+      <div class="row">
+        {{#each data.items}}
+          <div class="col-12 col-md-4 col-xl-3 border item" data-item-id="{{this.id}}">
+            <a href="#"><img src="/api/images/{{this.images.0.id}}" alt="" width="200" /></a>
+            <a href="#"><h4>{{this.title}}</h4></a>
+            <p>{{this.description}}</p>
+            <p>Price: ${{this.price}}</p>
+            {{#if this.distance}}
+              <p>Distance: {{this.distance}} km</p>
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/item.js"></script>
+<script src="/js/category.js"></script>

@@ -25,3 +25,32 @@
   height: 100%;
   width: 50px;
 }
+
+.orange {
+  color: #ff6f0f;
+}
+
+.preview-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.preview-image-container img {
+  display: block;
+}
+
+.preview-image-container button {
+  position: absolute;
+  top: 10px; /* Adjust to your preference */
+  right: 10px; /* Adjust to your preference */
+  padding: 10px 20px;
+  background-color: #ecc67b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.preview-image-container button:hover {
+  background-color: #f26a47;
+}
