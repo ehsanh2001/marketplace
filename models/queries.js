@@ -78,6 +78,16 @@ async function searchItemsByTerm(searchParams) {
   );
 }
 
+async function getNSuggestedItems(term, searchParams, n) {
+  let terms = term.split(" ");
+  let whereClause = terms
+    .map((term) => `concat(' ',title,' ') ilike '% ${term} %'`)
+    .join(" or ");
+
+  let result = await searchItems(searchParams, whereClause);
+  return result.slice(0, n);
+}
+
 async function searchItemsByCategory(searchParams) {
   const { category, lat, lng, radius } = searchParams;
   return await searchItems(searchParams, `cat_name = '${category}'`);
@@ -107,4 +117,5 @@ module.exports = {
   searchItemsByTerm,
   searchItemsById,
   searchUserByUsername,
+  getNSuggestedItems,
 };

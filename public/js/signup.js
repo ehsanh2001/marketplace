@@ -10,13 +10,13 @@ async function formSubmit(e) {
   const phoneEmail = form.phone_email.value;
 
   if (password !== rePassword) {
-    showErrorModal("Passwords do not match");
+    showMessageModal("Error", "Passwords do not match", "danger");
     return;
   }
 
   const searchLocationBtn = document.querySelector("#search-location");
   if (searchLocationBtn.textContent.includes("Map")) {
-    showErrorModal("Please select a location from the map");
+    showMessageModal("Error", "Please select a location from the map", "danger");
     return;
   }
   // Create the User data object
@@ -45,41 +45,26 @@ async function formSubmit(e) {
 
     const data = await response.json();
     if (data.message === "signup successful") {
-      showSuccessModal("Signup successful! Redirecting to dashboard...");
+      showMessageModal("Success", "Signup successful! Redirecting to dashboard...", "success");
       setTimeout(() => {
         document.location.replace("/dashboard");
       }, 2000); // Redirect after 2 seconds
     } else {
-      showErrorModal(data.message || "Failed to sign up. Please try again.");
+      showMessageModal("Error", data.message || "Failed to sign up. Please try again.", "danger");
     }
   } catch (error) {
     console.error("Error:", error);
-    showErrorModal("Failed to sign up. Please try again.");
+    showMessageModal("Error", "Failed to sign up. Please try again.", "danger");
   }
 }
 
-function showSuccessModal(message) {
-  const successModal = new bootstrap.Modal(document.getElementById('successModal'), {
-    backdrop: 'static', // Prevent closing modal on backdrop click
-    keyboard: false // Prevent closing modal on ESC key
-  });
-  
-  const successMessageElement = document.getElementById('successMessage');
-  successMessageElement.textContent = message;
-  
-  successModal.show();
-}
+function showMessageModal(title, message, type) {
+  const modalElement = document.getElementById("message-box-modal");
+  const modalTitle = document.getElementById("message-box-header");
+  const modalBody = document.getElementById("message-box-body");
 
-function showErrorModal(message) {
-  const errorModal = new bootstrap.Modal(document.getElementById('errorModal'), {
-    backdrop: 'static', // Prevent closing modal on backdrop click
-    keyboard: false // Prevent closing modal on ESC key
-  });
-  
-  const errorMessageElement = document.getElementById('errorMessage');
-  errorMessageElement.textContent = message;
-  
-  errorModal.show();
+  modalTitle.textContent = title;
+  modalBody.textContent = message;
 }
 
 document.addEventListener("DOMContentLoaded", function () {

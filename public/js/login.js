@@ -19,8 +19,6 @@ async function login(e) {
   if (response.ok) {
     window.location.href = "/dashboard";
   } else {
-    //const data = await response.json();
-    //alert("Invalid username or password");
     showMessageModal("Error", "Invalid username or password");
   }
 }

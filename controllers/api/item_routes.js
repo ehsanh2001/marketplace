@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Category, Item, Image } = require("../../models");
 const Query = require("../../models/queries");
 const multer = require("multer");
+const withAuth = require("../../utils/auth_middleware");
 
 const storage = multer.memoryStorage();
 const upload = multer({
@@ -9,6 +10,7 @@ const upload = multer({
   limits: { files: 3 },
 });
 
+<<<<<<< HEAD
 // search based on term and location
 // query: /api/item/term_location?term=term&lat=lat&lng=lng&radius=radius
 router.get("/search/term_location", async (req, res) => {
@@ -75,6 +77,10 @@ router.get("/search/id", async (req, res) => {
 
 // add items
 router.post("/", upload.array("images", 3), async (req, res) => {
+=======
+//add items
+router.post("/", withAuth, upload.array("images", 3), async (req, res) => {
+>>>>>>> b6288fb2d51f3aa1e5b783ddbf13292c23c6e92d
   try {
     const newItem = await Item.create(req.body);
 
@@ -93,8 +99,14 @@ router.post("/", upload.array("images", 3), async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // update items
 router.put("/:id", upload.array("images", 3), async (req, res) => {
+=======
+//update items
+router.put("/:id", withAuth, upload.array("images", 3), async (req, res) => {
+  //logic for updating items
+>>>>>>> b6288fb2d51f3aa1e5b783ddbf13292c23c6e92d
   try {
     const updateItems = await Item.update(req.body, {
       where: {
@@ -118,8 +130,13 @@ router.put("/:id", upload.array("images", 3), async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // delete items
 router.delete("/:id", async (req, res) => {
+=======
+//delete items
+router.delete("/:id", withAuth, async (req, res) => {
+>>>>>>> b6288fb2d51f3aa1e5b783ddbf13292c23c6e92d
   try {
     const deletedItem = await Item.destroy({
       where: {

@@ -7,7 +7,7 @@ const usersData = require("./users.json");
 const itemsData = require("./items.json");
 const { min } = require("../models/category");
 
-async function seedDatabase() {
+async function seedCategory() {
   try {
     // Get the list of image files from a directory
     const imageDirectory = "./seeds/category-image";
@@ -75,8 +75,6 @@ async function seedImages() {
     // seeding images
     const minID = await Item.min("id");
     const maxID = await Item.max("id");
-    console.log("minID:", minID);
-    console.log("maxID:", maxID);
 
     let id = minID;
     while (id <= maxID) {
@@ -100,7 +98,11 @@ async function seedImages() {
   }
 }
 
-seedDatabase();
-seedUsers();
-seedItems();
-seedImages();
+async function seed() {
+  await seedCategory();
+  await seedUsers();
+  await seedItems();
+  await seedImages();
+}
+
+seed();
