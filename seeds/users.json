@@ -13,7 +13,7 @@
     "phone_email": "bob.johnson@example.com",
     "address": "456 Elm St, Toronto, ON",
     "longitude": -79.3832,
-    "latitude": 43.6532
+    "latitude": 43.6542
   },
   {
     "username": "carol_davis",
@@ -21,15 +21,15 @@
     "phone_email": "carol.davis@example.com",
     "address": "789 Maple Ave, Toronto, ON",
     "longitude": -79.3832,
-    "latitude": 43.6532
+    "latitude": 43.6432
   },
   {
     "username": "david_wilson",
     "password": "davidpass123",
     "phone_email": "david.wilson@example.com",
     "address": "101 Oak St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
+    "longitude": -79.3932,
+    "latitude": 43.6832
   },
   {
     "username": "emma_miller",
@@ -44,7 +44,7 @@
     "password": "frankpass789",
     "phone_email": "416-555-5678",
     "address": "303 Cedar St, Toronto, ON",
-    "longitude": -79.3832,
+    "longitude": -79.3862,
     "latitude": 43.6532
   },
   {
@@ -52,8 +52,8 @@
     "password": "gracepass123",
     "phone_email": "grace.taylor@example.com",
     "address": "404 Birch St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
+    "longitude": -79.3842,
+    "latitude": 43.6432
   },
   {
     "username": "harry_adams",
@@ -69,14 +69,14 @@
     "phone_email": "416-555-9999",
     "address": "606 Elm St, Toronto, ON",
     "longitude": -79.3832,
-    "latitude": 43.6532
+    "latitude": 43.6732
   },
   {
     "username": "jack_roberts",
     "password": "jackpass789",
     "phone_email": "jack.roberts@example.com",
     "address": "707 Pine St, Toronto, ON",
-    "longitude": -79.3832,
+    "longitude": -79.3532,
     "latitude": 43.6532
   },
   {
@@ -84,215 +84,7 @@
     "password": "katepass123",
     "phone_email": "kate.hall@example.com",
     "address": "808 Maple Ave, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "lucas_wood",
-    "password": "lucaspass456",
-    "phone_email": "416-555-8888",
-    "address": "909 Cedar St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "mia_nelson",
-    "password": "miapass123",
-    "phone_email": "mia.nelson@example.com",
-    "address": "1010 Birch St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "nathan_hill",
-    "password": "nathanpass456",
-    "phone_email": "nathan.hill@example.com",
-    "address": "1111 Oak St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "olivia_king",
-    "password": "oliviapass789",
-    "phone_email": "416-555-7777",
-    "address": "1212 Elm St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "peter_scott",
-    "password": "peterpass123",
-    "phone_email": "peter.scott@example.com",
-    "address": "1313 Pine St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "quinn_baker",
-    "password": "quinnpass456",
-    "phone_email": "quinn.baker@example.com",
-    "address": "1414 Maple Ave, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "ryan_hernandez",
-    "password": "ryanpass123",
-    "phone_email": "ryan.hernandez@example.com",
-    "address": "1515 Cedar St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "sophia_gonzalez",
-    "password": "sophiapass456",
-    "phone_email": "416-555-6666",
-    "address": "1616 Oak St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "thomas_rodriguez",
-    "password": "thomaspass789",
-    "phone_email": "thomas.rodriguez@example.com",
-    "address": "1717 Elm St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "ursula_martinez",
-    "password": "ursulapass123",
-    "phone_email": "ursula.martinez@example.com",
-    "address": "1818 Pine St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "victor_lopez",
-    "password": "victorpass456",
-    "phone_email": "416-555-5555",
-    "address": "1919 Maple Ave, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "wendy_perez",
-    "password": "wendypass123",
-    "phone_email": "wendy.perez@example.com",
-    "address": "2020 Cedar St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "xavier_gomez",
-    "password": "xavierpass456",
-    "phone_email": "416-555-4444",
-    "address": "2121 Oak St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "yvonne_sanchez",
-    "password": "yvonnepass789",
-    "phone_email": "yvonne.sanchez@example.com",
-    "address": "2222 Elm St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "zachary_rivera",
-    "password": "zacharypass123",
-    "phone_email": "zachary.rivera@example.com",
-    "address": "2323 Pine St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "amy_nguyen",
-    "password": "amypass456",
-    "phone_email": "416-555-3333",
-    "address": "2424 Maple Ave, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "brandon_tran",
-    "password": "brandonpass123",
-    "phone_email": "brandon.tran@example.com",
-    "address": "2525 Cedar St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "catherine_le",
-    "password": "catherinepass456",
-    "phone_email": "416-555-2222",
-    "address": "2626 Oak St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "daniel_phan",
-    "password": "danielpass789",
-    "phone_email": "daniel.phan@example.com",
-    "address": "2727 Elm St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "elizabeth_tran",
-    "password": "elizabethpass123",
-    "phone_email": "elizabeth.tran@example.com",
-    "address": "2828 Pine St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "francis_vo",
-    "password": "francispass456",
-    "phone_email": "416-555-1111",
-    "address": "2929 Maple Ave, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "gabriella_ngo",
-    "password": "gabriellapass123",
-    "phone_email": "gabriella.ngo@example.com",
-    "address": "3030 Cedar St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "henry_luu",
-    "password": "henrypass456",
-    "phone_email": "416-555-9999",
-    "address": "3131 Oak St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "isabelle_huynh",
-    "password": "isabellepass789",
-    "phone_email": "isabelle.huynh@example.com",
-    "address": "3232 Elm St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "james_lam",
-    "password": "jamespass123",
-    "phone_email": "james.lam@example.com",
-    "address": "3333 Pine St, Toronto, ON",
-    "longitude": -79.3832,
-    "latitude": 43.6532
-  },
-  {
-    "username": "karen_nguyen",
-    "password": "karenpass456",
-    "phone_email": "416-555-8888",
-    "address": "3434 Maple Ave, Toronto, ON",
-    "longitude": -79.3832,
+    "longitude": -79.3332,
     "latitude": 43.6532
   }
 ]
