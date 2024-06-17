@@ -1,3 +1,4 @@
+{{! Message Box }}
 <div id="message-box-modal" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -19,6 +20,41 @@
           class="btn btn-danger"
           data-bs-dismiss="modal"
         >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Confirm Box }}
+<div id="confirm-box-modal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger">
+        <h5 id="confirm-box-header" class="modal-title">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-box-body">Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="confirm-box-yes"
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+        >Yes</button>
+        <button
+          id="confirm-box-no"
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+        >No</button>
+        <input type="text" hidden id="confirm-box-result" />
       </div>
     </div>
   </div>

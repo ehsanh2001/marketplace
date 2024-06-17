@@ -3,7 +3,7 @@
 function itemClicked(e) {
   const coords = JSON.parse(localStorage.getItem("coords"));
   if (!coords) {
-    alert("Please enter a location to search for items");
+    showMessageModal("Error", "Please select a location");
     return;
   }
   const { lat, lng } = JSON.parse(localStorage.getItem("coords"));
