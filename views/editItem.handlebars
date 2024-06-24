@@ -1,0 +1,24 @@
+<h1>Edit Item</h1>
+<form action="/items/edit/{{item.id}}" method="POST">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" value="{{item.username}}" required>
+
+  <label for="cat_name">Category Name:</label>
+  <input type="text" id="cat_name" name="cat_name" value="{{item.cat_name}}" required>
+
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" value="{{item.title}}" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description">{{item.description}}</textarea>
+
+  <label for="price">Price:</label>
+  <input type="number" step="0.01" id="price" name="price" value="{{item.price}}" required>
+  
+  <label for="created_at">Created at</label>
+  <input type="text" id="created_at" name="created_at" value="{{formatDate item.created_at}}" readonly>
+
+
+  <button type="submit">Save Changes</button>
+</form>
+<a href="/dashboard">Cancel</a>

@@ -1,4 +1,16 @@
 <h1>Dashboard</h1>
+<<<<<<< HEAD
+<ul>
+  {{#each items}}
+    <li>
+      {{this.title}} - {{this.username}} - ${{this.price}} - {{this.cat_name}} - Added on: {{this.created_at}}
+      <a href="/items/edit/{{this.id}}">Edit</a>
+      <a href="/items/delete/{{this.id}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+    </li>
+  {{/each}}
+</ul>
+<a href="/items/add">Add New Item</a>
+=======
 
 <p>Welcome, {{data.username}}!</p>
 
@@ -47,3 +59,4 @@
 </div>
 
 <script src="js/dashboard.js"></script>
+>>>>>>> ad550a486ac720f31964b37e887eb910d02b0cce
